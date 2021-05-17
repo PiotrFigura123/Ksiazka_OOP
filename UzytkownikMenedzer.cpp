@@ -84,7 +84,7 @@ int UzytkownikMenedzer::logowanieUzytkownika()
         {
             cout << endl << "Istnieje uzytkownik o takim loginie. ID = " <<uzytkownicy[i].pobierzId()<< endl;
             cout<<"Haslo:"<<uzytkownicy[i].pobierzHaslo()<<endl;
-        }
+
 
         for (int iloscProb = 3; iloscProb > 0; iloscProb--)
         {
@@ -98,9 +98,11 @@ int UzytkownikMenedzer::logowanieUzytkownika()
                 return  uzytkownicy[i].pobierzId();
             }
         }
-    cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
+        }
+    }
+    cout << "Nie istnieje taki uzytkownik." << endl << endl;
     system("pause");
     return 0;
-}
+
 }
 
