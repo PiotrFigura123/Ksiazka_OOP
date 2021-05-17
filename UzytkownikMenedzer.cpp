@@ -2,7 +2,7 @@
 
 void UzytkownikMenedzer::rejestracjaUzytkownika()
 {
-     Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
+    Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
 
     uzytkownicy.push_back(uzytkownik);
 
@@ -23,7 +23,8 @@ Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika()
         cout << "Podaj login: ";
         cin>>login;
         uzytkownik.ustawLogin(login);
-    } while (czyIstniejeLogin(uzytkownik.pobierzLogin()) == true);
+    }
+    while (czyIstniejeLogin(uzytkownik.pobierzLogin()) == true);
 
     cout << "Podaj haslo: ";
     string haslo;
@@ -42,7 +43,7 @@ int UzytkownikMenedzer:: pobierzIdNowegoUzytkownika()
 
 bool UzytkownikMenedzer::czyIstniejeLogin( string login)
 {
-    for (int i=0;i<uzytkownicy.size();i++)
+    for (int i=0; i<uzytkownicy.size(); i++)
     {
         if(uzytkownicy[i].pobierzLogin()==login)
         {
@@ -54,7 +55,7 @@ bool UzytkownikMenedzer::czyIstniejeLogin( string login)
 }
 void UzytkownikMenedzer::wypiszWszystkichUzytkownikow()
 {
-    for (int i=0;i<uzytkownicy.size();i++)
+    for (int i=0; i<uzytkownicy.size(); i++)
     {
         cout<<uzytkownicy[i].pobierzId()<<endl;
         cout<<uzytkownicy[i].pobierzLogin()<<endl;
@@ -66,5 +67,40 @@ void UzytkownikMenedzer::wypiszWszystkichUzytkownikow()
 void UzytkownikMenedzer::wczytajUzytkownikowZPliku()
 {
     uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+}
+
+int UzytkownikMenedzer::logowanieUzytkownika()
+{
+
+    string login = "", haslo = "";
+
+    cout << endl << "Podaj login: ";
+    cin>>login;
+    cout<<"wielkosc wektora uzytkownicy = "<< uzytkownicy.size()<<endl;
+
+    for (int i=0; i<uzytkownicy.size(); i++)
+    {
+        if(login == uzytkownicy[i].pobierzLogin())
+        {
+            cout << endl << "Istnieje uzytkownik o takim loginie. ID = " <<uzytkownicy[i].pobierzId()<< endl;
+            cout<<"Haslo:"<<uzytkownicy[i].pobierzHaslo()<<endl;
+        }
+
+        for (int iloscProb = 3; iloscProb > 0; iloscProb--)
+        {
+            cout << "Podaj haslo. Pozostalo prob: " << iloscProb << ": ";
+            cin>>haslo;
+
+            if ( haslo ==uzytkownicy[i].pobierzHaslo())
+            {
+                cout << endl << "Zalogowales sie." << endl << endl;
+                system("pause");
+                return  uzytkownicy[i].pobierzId();
+            }
+        }
+    cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
+    system("pause");
+    return 0;
+}
 }
 
