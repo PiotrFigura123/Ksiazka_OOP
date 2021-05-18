@@ -1,5 +1,6 @@
 #include "UzytkownikMenedzer.h"
 
+
 void UzytkownikMenedzer::rejestracjaUzytkownika()
 {
     Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
@@ -95,7 +96,8 @@ int UzytkownikMenedzer::logowanieUzytkownika()
             {
                 cout << endl << "Zalogowales sie." << endl << endl;
                 system("pause");
-                return  uzytkownicy[i].pobierzId();
+                idZalogowanegoUzytkownika = uzytkownicy[i].pobierzId() ;
+                return idZalogowanegoUzytkownika;
             }
         }
         }
@@ -103,6 +105,31 @@ int UzytkownikMenedzer::logowanieUzytkownika()
     cout << "Nie istnieje taki uzytkownik." << endl << endl;
     system("pause");
     return 0;
-
 }
+
+void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika()
+{
+    string noweHaslo = "";
+    cout << "Podaj nowe haslo: ";
+    cin >> noweHaslo;
+
+    for (int i=0; i<uzytkownicy.size(); i++)
+    {
+        if(uzytkownicy[i].pobierzId()==idZalogowanegoUzytkownika)
+        {
+          uzytkownicy[i].ustawHaslo(noweHaslo);
+           cout << "Haslo zostalo zmienione." << endl << endl;
+            system("pause");
+        }
+    }
+    cout<<"Jestem w miejscu wyisywnia uzytkownikow"<<endl;
+      for (int i=0; i<uzytkownicy.size(); i++)
+    {
+        cout<< "ID = "<<uzytkownicy[i].pobierzId()<<", nazwa = "<<uzytkownicy[i].pobierzLogin()<< ", haslo = "<<uzytkownicy[i].pobierzHaslo()<<endl;
+    }
+  plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+}
+
+
+
 
