@@ -1,0 +1,8 @@
+
+1|1|asd|asd|asd|asd|asd|
+2|1|as|as|as|as|as|
+1|2|ania|ania|ania|a|a|
+2|2|qqq|q|q|q|q|
+3|2|p|p|p|p|p|
+3|1|as|as|as|as|as|
+4|2|g|g|g|g|g|

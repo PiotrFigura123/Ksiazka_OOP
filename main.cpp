@@ -5,15 +5,11 @@ using namespace std;
 
 int main()
 {
-    KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy2.txt");
+    KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy2.txt", "Adresaci.txt");
     ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
-
-    //cout<<"Rejestracja"<<endl;
-    //ksiazkaAdresowa.rejestracjaUzytkownika();
-    cout<<"Log"<<endl;
     ksiazkaAdresowa.logowanieUzytkownika();
-    cout<<"Pass"<<endl;
-    ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
-    ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
+
+    ksiazkaAdresowa.wylogujUzytkownika();
+
     return 0;
 }

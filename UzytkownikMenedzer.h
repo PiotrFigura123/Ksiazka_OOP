@@ -1,3 +1,6 @@
+#ifndef UZYTKOWNIKMEDZER_H
+#define UZYTKOWNIKMEDZER_H
+
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -5,6 +8,7 @@
 #include <sstream>
 #include "PlikZUytkownikami.h"
 #include "Uzytkownik.h"
+#include "AdresatMenager.h"
 
 using namespace std;
 
@@ -28,4 +32,7 @@ public:
     void wypiszWszystkichUzytkownikow();
     void wczytajUzytkownikowZPliku();
     int logowanieUzytkownika();
+    void wylogujUzytkownika();
+    int pobierzIdZalogowanegoUzytkownika();
 };
+#endif
