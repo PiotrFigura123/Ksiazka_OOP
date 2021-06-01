@@ -25,5 +25,6 @@ public:
     void zmianaHaslaZalogowanegoUzytkownika();
     void wylogujUzytkownika();
     void rejestracjaAdresata();
+    void wyswietlWszystkichAdresatow();
 };
 #endif // KSIAZKAADRESOWA_H

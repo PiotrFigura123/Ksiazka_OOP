@@ -7,6 +7,7 @@ void KsiazkaAdresowa::rejestracjaUzytkownika()
 void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
 {
     uzytkownikMenedzer.wypiszWszystkichUzytkownikow();
+
 }
 void KsiazkaAdresowa::logowanieUzytkownika()
 {
@@ -23,4 +24,7 @@ void KsiazkaAdresowa::wylogujUzytkownika()
  {
           uzytkownikMenedzer.wylogujUzytkownika();
  }
-
+void KsiazkaAdresowa::wyswietlWszystkichAdresatow()
+ {
+         adresatMenager.wyswietlWszystkichAdresatow();
+ }

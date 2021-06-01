@@ -182,3 +182,26 @@ string PlikZAdresatami::konwerjsaIntNaString(int liczba)
     return str;
 };
 
+vector <Adresat> PlikZAdresatami::wczytajWszytkichAdresatow()
+{
+    Adresat adresat;
+    vector <Adresat> adresaci;
+    string daneJednegoAdresataOddzielonePionowymiKreskami = "";
+    fstream plikTekstowy2;
+    plikTekstowy2.open(nazwaPlikuZAdresatami2.c_str(), ios::in);
+
+    if (plikTekstowy2.good() == true)
+    {
+        while (getline(plikTekstowy2, daneJednegoAdresataOddzielonePionowymiKreskami))
+        {
+                adresat = pobierzDaneAdresata(daneJednegoAdresataOddzielonePionowymiKreskami);
+                adresaci.push_back(adresat);
+        }
+    }
+    else
+        cout << "Nie udalo sie otworzyc pliku i wczytac danych." << endl;
+
+    plikTekstowy2.close();
+
+        return adresaci;
+}

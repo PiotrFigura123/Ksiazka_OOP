@@ -10,6 +10,6 @@ int main()
     ksiazkaAdresowa.logowanieUzytkownika();
 
     ksiazkaAdresowa.wylogujUzytkownika();
-
+    ksiazkaAdresowa.wyswietlWszystkichAdresatow();
     return 0;
 }

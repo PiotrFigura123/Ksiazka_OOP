@@ -31,7 +31,7 @@ class AdresatMenager
     string pobierzLiczbe(string tekst, int pozycjaZnaku);
     int pobierzZPlikuIdOstatniegoAdresata();
 public:
-
+    void wyswietlWszystkichAdresatow();
     AdresatMenager(string nazwaPlikuZUzytkownikami2):plikZAdresatami(nazwaPlikuZUzytkownikami2){};
     int dodajAdresata(int IdZalogowanegoUzytkownika);
     void wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);

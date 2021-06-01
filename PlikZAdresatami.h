@@ -26,7 +26,7 @@ public:
     PlikZAdresatami(string NAZWAPLIKUZUYTKOWNIKAMI2):nazwaPlikuZAdresatami2(NAZWAPLIKUZUYTKOWNIKAMI2){};
     vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     void dopiszAdresataDoPliku(Adresat adresat);
-
+    vector <Adresat> wczytajWszytkichAdresatow();
 };
 
 

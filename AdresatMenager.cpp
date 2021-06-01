@@ -55,7 +55,7 @@ Adresat AdresatMenager::podajDaneNowegoAdresata(int IdZalogowanegoUzytkownika)
     adresat.ustawAdres(adres);
 
 
-    //wyswietlDaneAdresata(adresat, IdZalogowanegoUzytkownika);
+
     system("pause");
     return adresat;
 }
@@ -115,13 +115,13 @@ Adresat AdresatMenager::pobierzDaneAdresata(string daneAdresataOddzielonePionowy
                 adresat.ustawNazwisko(pojedynczaDanaAdresata);
                 break;
             case 5:
-               // adresat.numerTelefonu = pojedynczaDanaAdresata;
+               adresat.ustawNumerTelefonu(pojedynczaDanaAdresata);
                 break;
             case 6:
-               // adresat.email = pojedynczaDanaAdresata;
+               adresat.ustawEmail(pojedynczaDanaAdresata);
                 break;
             case 7:
-               // adresat.adres = pojedynczaDanaAdresata;
+               adresat.ustawAdres(pojedynczaDanaAdresata);
                 break;
             }
             pojedynczaDanaAdresata = "";
@@ -160,4 +160,19 @@ int AdresatMenager::pobierzZPlikuIdOstatniegoAdresata()
         return adresaci.back().pobierzId() + 1;
 
 
+}
+
+void AdresatMenager::wyswietlWszystkichAdresatow()
+{
+    adresaci = plikZAdresatami.wczytajWszytkichAdresatow();
+
+    for (int i=1; i<adresaci.size(); i++)
+    {
+        cout<<adresaci[i].pobierzId()<<" ";
+        cout<<adresaci[i].pobierzImie()<<" ";
+        cout<<adresaci[i].pobierzNazwisko()<<" ";
+        cout<<adresaci[i].pobierzNumerTelefonu()<<" ";
+        cout<<adresaci[i].pobierzEmail()<<" ";
+        cout<<adresaci[i].pobierzAdres()<<endl;
+    }
 }
