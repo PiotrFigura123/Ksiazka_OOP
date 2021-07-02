@@ -12,20 +12,28 @@ using namespace std;
 
 class PlikZAdresatami
 {
-    const string nazwaPlikuZAdresatami2;
+
+    const string NAZWA_PLIKU_Z_ADRESATAMI;
+    int idOstatniegoAdresata;
     bool czyPlikJestPusty();
-    string konwerjsaIntNaString(int liczba);
-    int konwersjaStringNaInt(string liczba);
+    string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
     string pobierzLiczbe(string tekst, int pozycjaZnaku);
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
-    Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
-    string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
+
+    Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
+
 
 public:
-    PlikZAdresatami(string NAZWAPLIKUZUYTKOWNIKAMI2):nazwaPlikuZAdresatami2(NAZWAPLIKUZUYTKOWNIKAMI2){};
-    vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
-    void dopiszAdresataDoPliku(Adresat adresat);
+
+    PlikZAdresatami(string nazwaPlikuZAdreatami):NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdreatami){
+    idOstatniegoAdresata =0;
+    };
+
+    bool dopiszAdresataDoPliku(Adresat adresat);
+     vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
+    int pobierzIdOstatniegoAdresata();
+    void ustawIdOstatniegoAdresata( int ustawNoweIdOstatniegoAdresata);
     vector <Adresat> wczytajWszytkichAdresatow();
 };
 

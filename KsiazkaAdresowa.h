@@ -9,14 +9,19 @@ using namespace std;
 class KsiazkaAdresowa
 {
     UzytkownikMenedzer uzytkownikMenedzer;
-    AdresatMenager adresatMenager;
+    AdresatMenager *adresatMenager;
+    const string NAZWA_PLIKU_Z_ADRESATAMI;
 
 public:
-    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZUzytkownikami2)
-    :uzytkownikMenedzer(nazwaPlikuZUzytkownikami),adresatMenager(nazwaPlikuZUzytkownikami2)
+    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami)
+        :uzytkownikMenedzer(nazwaPlikuZUzytkownikami),NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami)
     {
-        uzytkownikMenedzer.wczytajUzytkownikowZPliku();
-
+        adresatMenager = NULL;
+    };
+    ~KsiazkaAdresowa()
+    {
+        delete adresatMenager;
+        adresatMenager = NULL;
     };
 
     void rejestracjaUzytkownika();
@@ -24,7 +29,8 @@ public:
     void logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
     void wylogujUzytkownika();
-    void rejestracjaAdresata();
+    void dodajAdresata();
     void wyswietlWszystkichAdresatow();
+
 };
 #endif // KSIAZKAADRESOWA_H

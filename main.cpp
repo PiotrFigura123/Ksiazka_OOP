@@ -6,10 +6,16 @@ using namespace std;
 int main()
 {
     KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy2.txt", "Adresaci.txt");
+
     ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
+
     ksiazkaAdresowa.logowanieUzytkownika();
+    ksiazkaAdresowa.dodajAdresata();
+    ksiazkaAdresowa.wyswietlWszystkichAdresatow();
 
     ksiazkaAdresowa.wylogujUzytkownika();
-    ksiazkaAdresowa.wyswietlWszystkichAdresatow();
+    system("pause");
     return 0;
 }
+
+
