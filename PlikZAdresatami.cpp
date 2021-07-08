@@ -53,7 +53,7 @@ vector <Adresat>  PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku
             }
         }
         plikTekstowy2.close();
-}
+    }
     return adresaci;
 
 }
@@ -145,7 +145,8 @@ string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKre
 }
 
 bool PlikZAdresatami::czyPlikJestPusty()
-{   fstream plikTekstowy;
+{
+    fstream plikTekstowy;
     plikTekstowy.seekg(0, ios::end);
     if (plikTekstowy.tellg() == 0)
         return true;
@@ -176,8 +177,8 @@ vector <Adresat> PlikZAdresatami::wczytajWszytkichAdresatow()
     {
         while (getline(plikTekstowy2, daneJednegoAdresataOddzielonePionowymiKreskami))
         {
-                adresat = pobierzDaneAdresata(daneJednegoAdresataOddzielonePionowymiKreskami);
-                adresaci.push_back(adresat);
+            adresat = pobierzDaneAdresata(daneJednegoAdresataOddzielonePionowymiKreskami);
+            adresaci.push_back(adresat);
         }
     }
     else
@@ -185,5 +186,52 @@ vector <Adresat> PlikZAdresatami::wczytajWszytkichAdresatow()
 
     plikTekstowy2.close();
 
-        return adresaci;
+    return adresaci;
+}
+
+void PlikZAdresatami::usunWybranegoAdresataZPliku(string daneJednegoAdresataOddzielonePionowymiKreskami)
+{
+    fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
+    string wczytanaLinia = "";
+    int numerWczytanejLinii = 1;
+    odczytywanyPlikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
+    tymczasowyPlikTekstowy.open(TYMCZAS_NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::out | ios::app);
+
+    if (odczytywanyPlikTekstowy.good() == true)
+    {
+        while(getline(odczytywanyPlikTekstowy, wczytanaLinia))
+
+        {
+            if (daneJednegoAdresataOddzielonePionowymiKreskami == wczytanaLinia)
+            {
+                numerWczytanejLinii++;
+            }
+            else
+            {
+                tymczasowyPlikTekstowy<<wczytanaLinia<<endl;
+                numerWczytanejLinii++;
+
+            }
+        }
+    }
+    odczytywanyPlikTekstowy.close();
+    tymczasowyPlikTekstowy.close();
+
+    usunPlik(NAZWA_PLIKU_Z_ADRESATAMI);
+    zmienNazwePliku(TYMCZAS_NAZWA_PLIKU_Z_ADRESATAMI, NAZWA_PLIKU_Z_ADRESATAMI);
+
+}
+
+void PlikZAdresatami::zmienNazwePliku(string staraNazwa, string nowaNazwa)
+{
+    if (rename(staraNazwa.c_str(), nowaNazwa.c_str()) == 0) {}
+    else
+        cout << "Nazwa pliku nie zostala zmieniona." << staraNazwa << endl;
+}
+
+void PlikZAdresatami::usunPlik(string nazwaPlikuZRozszerzeniem)
+{
+    if (remove(nazwaPlikuZRozszerzeniem.c_str()) == 0) {}
+    else
+        cout << "Nie udalo sie usunac pliku " << nazwaPlikuZRozszerzeniem << endl;
 }

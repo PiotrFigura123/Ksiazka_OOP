@@ -20,6 +20,7 @@ class AdresatMenager
 
     Adresat podajDaneNowegoAdresata();
     void wyswietlDaneAdresata(Adresat adresat);
+    int podajIdWybranegoAdresata();
 
 public:
 
@@ -31,7 +32,7 @@ public:
 
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();
-
+    void usunAdresata(int ID_ZALOGOWANEGO_UZYTKOWNIKA);
 
 };
 #endif

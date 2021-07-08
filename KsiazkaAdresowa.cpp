@@ -38,3 +38,8 @@ void KsiazkaAdresowa::dodajAdresata()
 {
     adresatMenager->dodajAdresata();
 }
+
+void KsiazkaAdresowa::usunAdresata()
+{
+    adresatMenager->usunAdresata(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+}

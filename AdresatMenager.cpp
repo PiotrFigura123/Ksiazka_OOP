@@ -75,3 +75,71 @@ void AdresatMenager::wyswietlWszystkichAdresatow()
         cout<<"Adre: "<<adresaci[i].pobierzAdres()<<endl<<endl;
     }
 }
+
+void AdresatMenager::usunAdresata(int ID_ZALOGOWANEGO_UZYTKOWNIKA)
+{
+     system("cls");
+     cout <<"ID zalogowanego uytkowanika " <<ID_ZALOGOWANEGO_UZYTKOWNIKA<<endl;
+     string idZalogownego;
+     idZalogownego = MetodyPomocnicze::konwerjsaIntNaString(ID_ZALOGOWANEGO_UZYTKOWNIKA);
+      system("pause");
+    int idUsuwanegoAdresata = 0;
+    int numerLiniiUsuwanegoAdresata = 0;
+    string daneJednegoAdresataOddzielonePionowymiKreskami ="";
+    system("cls");
+    cout << ">>> USUWANIE WYBRANEGO ADRESATA <<<" << endl << endl;
+    idUsuwanegoAdresata = podajIdWybranegoAdresata();
+
+    char znak;
+    bool czyIstniejeAdresat = false;
+
+    for (vector <Adresat>::iterator itr = adresaci.begin(); itr != adresaci.end(); itr++)
+    {
+        if (itr -> pobierzId() == idUsuwanegoAdresata)
+        {
+            daneJednegoAdresataOddzielonePionowymiKreskami= MetodyPomocnicze::konwerjsaIntNaString(idUsuwanegoAdresata)+"|"+idZalogownego+"|"+itr->pobierzImie()+"|"+itr->pobierzNazwisko()+"|"+itr->pobierzNumerTelefonu()+"|"+itr->pobierzEmail()+"|"+itr->pobierzAdres()+"|";
+
+            czyIstniejeAdresat = true;
+            cout << endl << "Potwierdz naciskajac klawisz 't': ";
+            cin>>znak;
+            if (znak == 't')
+            {
+                cout<<"daneJednegoAdresataOddzielonePionowymiKreskami "<<daneJednegoAdresataOddzielonePionowymiKreskami<<endl;
+                plikZAdresatami.usunWybranegoAdresataZPliku(daneJednegoAdresataOddzielonePionowymiKreskami);
+                //numerLiniiUsuwanegoAdresata = zwrocNumerLiniiSzukanegoAdresata(idUsuwanegoAdresata);
+                //usunWybranaLinieWPliku(numerLiniiUsuwanegoAdresata);
+
+                cout<<"Jestem pprzed usunieciuadresata z wektora"<<endl;
+                cout<<adresaci.size()<<endl;
+                *adresaci.erase(itr);
+                cout<<"Jestem po usunieciuadresata z wektora"<<endl;
+                cout<<adresaci.size()<<endl;
+                cout<<"Jestem po usunieciuadresata z wektora"<<endl;
+                cout << endl << endl << "Szukany adresat zostal USUNIETY" << endl << endl;
+                system("pause");
+
+            }
+            else
+            {
+                cout << endl << endl << "Wybrany adresat NIE zostal usuniety" << endl << endl;
+                system("p       ause");
+
+            }
+        }
+    }
+    if (czyIstniejeAdresat == false)
+    {
+        cout << endl << "Nie ma takiego adresata w ksiazce adresowej" << endl << endl;
+        system("pause");
+    }
+
+}
+
+int AdresatMenager::podajIdWybranegoAdresata()
+{
+    int idWybranegoAdresata = 0;
+    cout << "Podaj numer ID Adresata: ";
+    cin>>idWybranegoAdresata;
+    return idWybranegoAdresata;
+}
+
