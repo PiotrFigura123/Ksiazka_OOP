@@ -43,3 +43,8 @@ void KsiazkaAdresowa::usunAdresata()
 {
     adresatMenager->usunAdresata(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
 }
+
+void KsiazkaAdresowa::edytujAdresata()
+{
+    adresatMenager->edytujAdresata(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+}

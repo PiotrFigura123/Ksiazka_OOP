@@ -9,12 +9,12 @@ int main()
 
     ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
     //ksiazkaAdresowa.rejestracjaUzytkownika();
-    ksiazkaAdresowa.logowanieUzytkownika();
+   ksiazkaAdresowa.logowanieUzytkownika();
     //ksiazkaAdresowa.dodajAdresata();
     //ksiazkaAdresowa.dodajAdresata();
-    ksiazkaAdresowa.usunAdresata();
+    //ksiazkaAdresowa.usunAdresata();
     //ksiazkaAdresowa.wyswietlWszystkichAdresatow();
-
+    ksiazkaAdresowa.edytujAdresata();
     //ksiazkaAdresowa.wylogujUzytkownika();
     //ksiazkaAdresowa.logowanieUzytkownika();
     //ksiazkaAdresowa.dodajAdresata();

@@ -39,6 +39,8 @@ public:
     vector <Adresat> wczytajWszytkichAdresatow();
     //int usunLinieZAdresatem(int idAdresata);
     void usunWybranegoAdresataZPliku(string daneJednegoAdresataOddzielonePionowymiKreskami);
+    void edytujWybranegoAdresataZPliku(string daneJednegoAdresataOddzielonePionowymiKreskami, string noweDaneJednegoAdresataOddzielonePionowymiKreskami);
+
 };
 
 
