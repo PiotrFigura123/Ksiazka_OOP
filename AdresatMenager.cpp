@@ -22,8 +22,6 @@ Adresat AdresatMenager::podajDaneNowegoAdresata()
 
     adresat.ustawId((plikZAdresatami.pobierzIdOstatniegoAdresata()+1));
 
-    cout<<"adresat ID = "<< adresat.pobierzId()<<endl;
-    cout<<"uzytkownik ID = "<< adresat.pobierzIdUzytkownika()<<endl;
     cout << "Podaj imie: ";
     cin>>imie;
 

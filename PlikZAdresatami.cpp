@@ -4,7 +4,7 @@ bool PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
 {
     string liniaZDanymiAdresata = "";
     fstream plikTekstowy2;
-    plikTekstowy2.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::out | ios::app);
+    plikTekstowy2.open(PlikTekstowy::pobierzNazwePliku().c_str(), ios::out | ios::app);
 
     if (plikTekstowy2.good() == true)
     {
@@ -12,7 +12,7 @@ bool PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
 
         cout<<liniaZDanymiAdresata;
 
-        if (czyPlikJestPusty() == true)
+        if (PlikTekstowy::czyPlikJestPusty() == true)
         {
             plikTekstowy2 << liniaZDanymiAdresata;
         }
@@ -35,11 +35,9 @@ vector <Adresat>  PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     string daneOstaniegoAdresataWPliku = "";
     fstream plikTekstowy2;
-    plikTekstowy2.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
-    cout<<"ID zalogowanego uzytkownika = " <<idZalogowanegoUzytkownika<<endl;
+    plikTekstowy2.open(PlikTekstowy::pobierzNazwePliku().c_str(), ios::in);
     if (plikTekstowy2.good() == true)
     {
-        cout<<"Jestem w pliku 2, ID zalogowanego uzytkownika = "<<idZalogowanegoUzytkownika<<endl;
         while (getline(plikTekstowy2, daneJednegoAdresataOddzielonePionowymiKreskami))
         {
             if(idZalogowanegoUzytkownika == pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami))
@@ -144,7 +142,7 @@ string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKre
     return liniaZDanymiAdresata;
 }
 
-bool PlikZAdresatami::czyPlikJestPusty()
+/*bool PlikZAdresatami::czyPlikJestPusty()
 {
     fstream plikTekstowy;
     plikTekstowy.seekg(0, ios::end);
@@ -152,7 +150,7 @@ bool PlikZAdresatami::czyPlikJestPusty()
         return true;
     else
         return false;
-};
+};*/
 
 
 int PlikZAdresatami::pobierzIdOstatniegoAdresata()
@@ -171,7 +169,7 @@ vector <Adresat> PlikZAdresatami::wczytajWszytkichAdresatow()
     vector <Adresat> adresaci;
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     fstream plikTekstowy2;
-    plikTekstowy2.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
+    plikTekstowy2.open(PlikTekstowy::pobierzNazwePliku().c_str(), ios::in);
 
     if (plikTekstowy2.good() == true)
     {
@@ -194,7 +192,7 @@ void PlikZAdresatami::usunWybranegoAdresataZPliku(string daneJednegoAdresataOddz
     fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
     string wczytanaLinia = "";
     int numerWczytanejLinii = 1;
-    odczytywanyPlikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
+    odczytywanyPlikTekstowy.open(PlikTekstowy::pobierzNazwePliku().c_str(), ios::in);
     tymczasowyPlikTekstowy.open(TYMCZAS_NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::out | ios::app);
 
     if (odczytywanyPlikTekstowy.good() == true)
@@ -217,8 +215,8 @@ void PlikZAdresatami::usunWybranegoAdresataZPliku(string daneJednegoAdresataOddz
     odczytywanyPlikTekstowy.close();
     tymczasowyPlikTekstowy.close();
 
-    usunPlik(NAZWA_PLIKU_Z_ADRESATAMI);
-    zmienNazwePliku(TYMCZAS_NAZWA_PLIKU_Z_ADRESATAMI, NAZWA_PLIKU_Z_ADRESATAMI);
+    usunPlik(PlikTekstowy::pobierzNazwePliku());
+    zmienNazwePliku(TYMCZAS_NAZWA_PLIKU_Z_ADRESATAMI, PlikTekstowy::pobierzNazwePliku());
 
 }
 
@@ -229,7 +227,7 @@ void PlikZAdresatami::edytujWybranegoAdresataZPliku(string daneJednegoAdresataOd
     fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
     string wczytanaLinia = "";
     int numerWczytanejLinii = 1;
-    odczytywanyPlikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
+    odczytywanyPlikTekstowy.open(PlikTekstowy::pobierzNazwePliku().c_str(), ios::in);
     tymczasowyPlikTekstowy.open(TYMCZAS_NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::out | ios::app);
 
     if (odczytywanyPlikTekstowy.good() == true)
@@ -254,8 +252,8 @@ void PlikZAdresatami::edytujWybranegoAdresataZPliku(string daneJednegoAdresataOd
     odczytywanyPlikTekstowy.close();
     tymczasowyPlikTekstowy.close();
 
-    usunPlik(NAZWA_PLIKU_Z_ADRESATAMI);
-    zmienNazwePliku(TYMCZAS_NAZWA_PLIKU_Z_ADRESATAMI, NAZWA_PLIKU_Z_ADRESATAMI);
+    usunPlik(PlikTekstowy::pobierzNazwePliku());
+    zmienNazwePliku(TYMCZAS_NAZWA_PLIKU_Z_ADRESATAMI, PlikTekstowy::pobierzNazwePliku());
 
 }
 

@@ -3,10 +3,11 @@
 
 void UzytkownikMenedzer::rejestracjaUzytkownika()
 {
+
     Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
 
     uzytkownicy.push_back(uzytkownik);
-
+    //
     plikZUzytkownikami.dopiszUzytkownikaDoPliku(uzytkownik);
 
     cout << endl << "Konto zalozono pomyslnie" << endl << endl;
@@ -15,6 +16,7 @@ void UzytkownikMenedzer::rejestracjaUzytkownika()
 
 Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika()
 {
+    cout<<"Rejestracja uzytkownika: "<<endl;
     Uzytkownik uzytkownik;
 
     uzytkownik.ustawId(pobierzIdNowegoUzytkownika());

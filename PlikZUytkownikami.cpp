@@ -5,13 +5,13 @@ void PlikZUytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik)
 {
     fstream plikTekstowy;
     string liniaZDanymiUzytkownika = "";
-    plikTekstowy.open(NAZWA_PLIKU_Z_UYTKOWNIKAMI.c_str(), ios::app);
+    plikTekstowy.open(PlikTekstowy::pobierzNazwePliku().c_str(), ios::app);
 
     if (plikTekstowy.good() == true)
     {
         liniaZDanymiUzytkownika = zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(uzytkownik);
 
-        if (czyPlikJestPusty() == true)
+        if (PlikTekstowy::czyPlikJestPusty() == true)
         {
             plikTekstowy << liniaZDanymiUzytkownika;
         }
@@ -25,14 +25,14 @@ void PlikZUytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik)
     plikTekstowy.close();
 }
 
-bool PlikZUytkownikami::czyPlikJestPusty()
+/*bool PlikZUytkownikami::czyPlikJestPusty()
 {   fstream plikTekstowy;
     plikTekstowy.seekg(0, ios::end);
     if (plikTekstowy.tellg() == 0)
         return true;
     else
         return false;
-}
+}*/
 
 string PlikZUytkownikami::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik)
 {
@@ -46,14 +46,14 @@ string PlikZUytkownikami::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymi
     return liniaZDanymiUzytkownika;
 }
 
-vector <Uzytkownik> PlikZUytkownikami::wczytajUzytkownikowZPliku()
+vector <Uzytkownik> PlikZUytkownikami::wczytajUzytkownikowZPliku(string NAZWA_PLIKU_Z_UYTKOWNIKAMI)
 {
     Uzytkownik uzytkownik;
     vector<Uzytkownik> uzytkownicy;
     fstream plikTekstowy;
     string daneJednegoUzytkownikaOddzielonePionowymiKreskami = "";
 
-    plikTekstowy.open(NAZWA_PLIKU_Z_UYTKOWNIKAMI.c_str(), ios::in);
+    plikTekstowy.open(PlikTekstowy::pobierzNazwePliku().c_str(), ios::in);
 
     if (plikTekstowy.good() == true)
     {
@@ -109,7 +109,7 @@ void PlikZUytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik> 
     string liniaZDanymiUzytkownika = "";
     vector <Uzytkownik>::iterator itrKoniec = --uzytkownicy.end();
 
-    plikTekstowy.open(NAZWA_PLIKU_Z_UYTKOWNIKAMI.c_str(), ios::out);
+    plikTekstowy.open(PlikTekstowy::pobierzNazwePliku().c_str(), ios::out);
 
     if (plikTekstowy.good() == true)
     {

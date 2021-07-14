@@ -9,6 +9,7 @@
 #include "PlikZUytkownikami.h"
 #include "Uzytkownik.h"
 #include "AdresatMenager.h"
+#include "PlikTekstowy.h"
 
 using namespace std;
 
@@ -29,7 +30,7 @@ public:
     UzytkownikMenedzer(string nazwaPlikuZUzytkownikami):plikZUzytkownikami(nazwaPlikuZUzytkownikami)
     {
         idZalogowanegoUzytkownika=0;
-        uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+        uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku(nazwaPlikuZUzytkownikami);
     };
 
     void rejestracjaUzytkownika();
