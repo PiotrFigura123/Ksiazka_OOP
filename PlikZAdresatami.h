@@ -16,7 +16,6 @@ class PlikZAdresatami :public PlikTekstowy
     const string NAZWA_PLIKU_Z_ADRESATAMI;
     string TYMCZAS_NAZWA_PLIKU_Z_ADRESATAMI = "Adresaci_tymczas.txt";
     int idOstatniegoAdresata;
-   // bool czyPlikJestPusty();
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
     string pobierzLiczbe(string tekst, int pozycjaZnaku);
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);

@@ -102,17 +102,9 @@ void AdresatMenager::usunAdresata(int ID_ZALOGOWANEGO_UZYTKOWNIKA)
             cin>>znak;
             if (znak == 't')
             {
-                cout<<"daneJednegoAdresataOddzielonePionowymiKreskami "<<daneJednegoAdresataOddzielonePionowymiKreskami<<endl;
                 plikZAdresatami.usunWybranegoAdresataZPliku(daneJednegoAdresataOddzielonePionowymiKreskami);
-                //numerLiniiUsuwanegoAdresata = zwrocNumerLiniiSzukanegoAdresata(idUsuwanegoAdresata);
-                //usunWybranaLinieWPliku(numerLiniiUsuwanegoAdresata);
 
-                cout<<"Jestem pprzed usunieciuadresata z wektora"<<endl;
-                cout<<adresaci.size()<<endl;
                 *adresaci.erase(itr);
-                cout<<"Jestem po usunieciuadresata z wektora"<<endl;
-                cout<<adresaci.size()<<endl;
-                cout<<"Jestem po usunieciuadresata z wektora"<<endl;
                 cout << endl << endl << "Szukany adresat zostal USUNIETY" << endl << endl;
                 system("pause");
 
