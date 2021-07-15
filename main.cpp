@@ -10,6 +10,7 @@ int main()
     char wyboru = '0';
     while(true)
     {
+        LOOP:
         wybierzOpcjeZMenuUzytkownika = MetodyPomocnicze::wybierzOpcjeZMenuGlownego();
 
         switch (wybierzOpcjeZMenuUzytkownika)
@@ -48,7 +49,7 @@ int main()
                 break;
             case '8':
                 ksiazkaAdresowa.wylogujUzytkownika();
-                exit(0);
+                goto LOOP;
                 break;
             }
             }

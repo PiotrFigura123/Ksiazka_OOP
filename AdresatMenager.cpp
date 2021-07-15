@@ -60,7 +60,7 @@ void AdresatMenager::wyswietlDaneAdresata(Adresat adresat)
 
 void AdresatMenager::wyswietlWszystkichAdresatow()
 {
-    adresaci = plikZAdresatami.wczytajWszytkichAdresatow();
+    //adresaci = plikZAdresatami.wczytajWszytkichAdresatow();
 
     for (int i=0; i<adresaci.size(); i++)
     {
@@ -72,6 +72,7 @@ void AdresatMenager::wyswietlWszystkichAdresatow()
         cout<<"Email: "<<adresaci[i].pobierzEmail()<<endl;
         cout<<"Adre: "<<adresaci[i].pobierzAdres()<<endl<<endl;
     }
+    system("pause");
 }
 
 void AdresatMenager::usunAdresata(int ID_ZALOGOWANEGO_UZYTKOWNIKA)
