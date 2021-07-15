@@ -48,3 +48,11 @@ void KsiazkaAdresowa::edytujAdresata()
 {
     adresatMenager->edytujAdresata(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
 }
+void KsiazkaAdresowa::wyszukajAdresatowPoImieniu()
+{
+    adresatMenager->wyszukajAdresatowPoImieniu(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+}
+void KsiazkaAdresowa::wyszukajAdresatowPoNazwisku()
+{
+    adresatMenager->wyszukajAdresatowPoNazwisku(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+}

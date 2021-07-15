@@ -22,6 +22,7 @@ class AdresatMenager
     void wyswietlDaneAdresata(Adresat adresat);
     int podajIdWybranegoAdresata();
     char wybierzOpcjeZMenuEdycja();
+    void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
 public:
 
     AdresatMenager(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika )
@@ -34,5 +35,7 @@ public:
     void wyswietlWszystkichAdresatow();
     void usunAdresata(int ID_ZALOGOWANEGO_UZYTKOWNIKA);
     void edytujAdresata(int ID_ZALOGOWANEGO_UZYTKOWNIKA);
+    void wyszukajAdresatowPoImieniu(int ID_ZALOGOWANEGO_UZYTKOWNIKA);
+    void wyszukajAdresatowPoNazwisku(int ID_ZALOGOWANEGO_UZYTKOWNIKA);
 };
 #endif

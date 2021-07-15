@@ -2,3 +2,6 @@
 2|qwed|a|
 3|q|q|
 4|v|v|
+5|x|x|
+6|as|as|
+7|kloc|kloc|

@@ -259,3 +259,4 @@ void PlikZAdresatami::usunPlik(string nazwaPlikuZRozszerzeniem)
     else
         cout << "Nie udalo sie usunac pliku " << nazwaPlikuZRozszerzeniem << endl;
 }
+
