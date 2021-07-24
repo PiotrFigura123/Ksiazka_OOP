@@ -14,8 +14,8 @@ void KsiazkaAdresowa::logowanieUzytkownika()
     uzytkownikMenedzer.logowanieUzytkownika();
     if ( uzytkownikMenedzer.czyUzytkownikJestZalogowany())
     {
-        cout<<"Uzytkownik jest zalogowany: "<<uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika()<<endl;
         adresatMenager = new AdresatMenager(NAZWA_PLIKU_Z_ADRESATAMI, uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+
     }
 
 }

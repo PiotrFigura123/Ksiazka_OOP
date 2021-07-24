@@ -1,5 +1,3 @@
-1|1|asd|asd|asd|asd|asd|
-2|1|g|g|g|g|winogronowa|
-
-1|7|q|q|q|q|q|
-2|7|ania|ania|a|a|a|
+2|1|a|a|a|a|a|
+5|1|qw|qw|qw|qw|qw|
+7|1|e|e|e|e|e|

@@ -16,13 +16,12 @@ class PlikZAdresatami :public PlikTekstowy
     const string NAZWA_PLIKU_Z_ADRESATAMI;
     string TYMCZAS_NAZWA_PLIKU_Z_ADRESATAMI = "Adresaci_tymczas.txt";
     int idOstatniegoAdresata;
+
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
     string pobierzLiczbe(string tekst, int pozycjaZnaku);
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
-
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
-
     void usunPlik(string nazwaPlikuZRozszerzeniem);
     void zmienNazwePliku(string staraNazwa, string nowaNazwa);
 
@@ -36,7 +35,6 @@ public:
     int pobierzIdOstatniegoAdresata();
     void ustawIdOstatniegoAdresata( int ustawNoweIdOstatniegoAdresata);
     vector <Adresat> wczytajWszytkichAdresatow();
-    //int usunLinieZAdresatem(int idAdresata);
     void usunWybranegoAdresataZPliku(string daneJednegoAdresataOddzielonePionowymiKreskami);
     void edytujWybranegoAdresataZPliku(string daneJednegoAdresataOddzielonePionowymiKreskami, string noweDaneJednegoAdresataOddzielonePionowymiKreskami);
 

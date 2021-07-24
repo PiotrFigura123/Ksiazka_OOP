@@ -1,6 +1,7 @@
 #include <iostream>
 #include "KsiazkaAdresowa.h"
 #include "MetodyPomocnicze.h"
+#include "UzytkownikMenedzer.h"
 using namespace std;
 
 int main()
@@ -10,7 +11,7 @@ int main()
     char wyboru = '0';
     while(true)
     {
-        LOOP:
+LOOP:
         wybierzOpcjeZMenuUzytkownika = MetodyPomocnicze::wybierzOpcjeZMenuGlownego();
 
         switch (wybierzOpcjeZMenuUzytkownika)
@@ -21,40 +22,39 @@ int main()
         case '2':
         {
             ksiazkaAdresowa.logowanieUzytkownika();
-            while(true)
-            {
-                wyboru = MetodyPomocnicze::wybierzOpcjeZMenuUzytkownika();
-            switch (wyboru)
-            {
-            case '1':
-                ksiazkaAdresowa.dodajAdresata();
-                break;
-            case '2':
-                ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
-                break;
-            case '3':
-                ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
-                break;
-            case '4':
-                ksiazkaAdresowa.wyswietlWszystkichAdresatow();
-                break;
-            case '5':
-                ksiazkaAdresowa.usunAdresata();
-                break;
-            case '6':
-                ksiazkaAdresowa.edytujAdresata();
-                break;
-            case '7':
-                ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
-                break;
-            case '8':
-                ksiazkaAdresowa.wylogujUzytkownika();
-                goto LOOP;
-                break;
-            }
-            }
 
-            break;
+                while(true)
+                {
+                    wyboru = MetodyPomocnicze::wybierzOpcjeZMenuUzytkownika();
+                    switch (wyboru)
+                    {
+                    case '1':
+                        ksiazkaAdresowa.dodajAdresata();
+                        break;
+                    case '2':
+                        ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
+                        break;
+                    case '3':
+                        ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
+                        break;
+                    case '4':
+                        ksiazkaAdresowa.wyswietlWszystkichAdresatow();
+                        break;
+                    case '5':
+                        ksiazkaAdresowa.usunAdresata();
+                        break;
+                    case '6':
+                        ksiazkaAdresowa.edytujAdresata();
+                        break;
+                    case '7':
+                        ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
+                        break;
+                    case '8':
+                        ksiazkaAdresowa.wylogujUzytkownika();
+                        goto LOOP;
+                        break;
+                    }
+            }
         }
         case '9':
             exit(0);
@@ -65,6 +65,8 @@ int main()
             break;
         }
     }
+
 }
+
 
 

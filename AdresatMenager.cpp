@@ -89,7 +89,7 @@ void AdresatMenager::usunAdresata(int ID_ZALOGOWANEGO_UZYTKOWNIKA)
     cout << ">>> USUWANIE WYBRANEGO ADRESATA <<<" << endl << endl;
     idUsuwanegoAdresata = podajIdWybranegoAdresata();
 
-    char znak;
+    char znak='0';
     bool czyIstniejeAdresat = false;
 
     for (vector <Adresat>::iterator itr = adresaci.begin(); itr != adresaci.end(); itr++)
@@ -108,12 +108,14 @@ void AdresatMenager::usunAdresata(int ID_ZALOGOWANEGO_UZYTKOWNIKA)
                 *adresaci.erase(itr);
                 cout << endl << endl << "Szukany adresat zostal USUNIETY" << endl << endl;
                 system("pause");
+                if(adresaci.size()==0)
+                    break;
 
             }
             else
             {
                 cout << endl << endl << "Wybrany adresat NIE zostal usuniety" << endl << endl;
-                system("p       ause");
+                system("pause");
 
             }
         }

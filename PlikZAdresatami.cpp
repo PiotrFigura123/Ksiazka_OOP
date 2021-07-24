@@ -18,7 +18,7 @@ bool PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
         }
         else
         {
-            plikTekstowy2 << endl << liniaZDanymiAdresata ;
+            plikTekstowy2 <<endl<< liniaZDanymiAdresata ;
         }
         idOstatniegoAdresata++;
         plikTekstowy2.close();
@@ -46,10 +46,14 @@ vector <Adresat>  PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku
 
                 adresat = pobierzDaneAdresata(daneJednegoAdresataOddzielonePionowymiKreskami);
                 adresaci.push_back(adresat);
-                daneOstaniegoAdresataWPliku = daneJednegoAdresataOddzielonePionowymiKreskami;
-                idOstatniegoAdresata = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
+
+
             }
+            daneOstaniegoAdresataWPliku = daneJednegoAdresataOddzielonePionowymiKreskami;
+            idOstatniegoAdresata = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
+
         }
+
         plikTekstowy2.close();
     }
     return adresaci;
@@ -180,7 +184,7 @@ void PlikZAdresatami::usunWybranegoAdresataZPliku(string daneJednegoAdresataOddz
 {
     fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
     string wczytanaLinia = "";
-    int numerWczytanejLinii = 1;
+    int numerWczytanejLinii = 0;
     odczytywanyPlikTekstowy.open(PlikTekstowy::pobierzNazwePliku().c_str(), ios::in);
     tymczasowyPlikTekstowy.open(TYMCZAS_NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::out | ios::app);
 
@@ -189,17 +193,14 @@ void PlikZAdresatami::usunWybranegoAdresataZPliku(string daneJednegoAdresataOddz
         while(getline(odczytywanyPlikTekstowy, wczytanaLinia))
 
         {
-            if (daneJednegoAdresataOddzielonePionowymiKreskami == wczytanaLinia)
+            if (daneJednegoAdresataOddzielonePionowymiKreskami != wczytanaLinia)
             {
-                numerWczytanejLinii++;
+                  tymczasowyPlikTekstowy<<wczytanaLinia<<endl;
             }
-            else
-            {
-                tymczasowyPlikTekstowy<<wczytanaLinia<<endl;
-                numerWczytanejLinii++;
 
-            }
+            numerWczytanejLinii++;
         }
+        cout<<"Numer wszytywanej linii = " <<numerWczytanejLinii<<endl;
     }
     odczytywanyPlikTekstowy.close();
     tymczasowyPlikTekstowy.close();

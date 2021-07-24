@@ -17,13 +17,11 @@ class UzytkownikMenedzer
 {
     int idZalogowanegoUzytkownika;
     vector <Uzytkownik> uzytkownicy;
+    PlikZUytkownikami plikZUzytkownikami;
 
     Uzytkownik podajDaneNowegoUzytkownika();
     int pobierzIdNowegoUzytkownika();
-
     bool czyIstniejeLogin(string login);
-    PlikZUytkownikami plikZUzytkownikami;
-    void zapiszWszystkichUzytkownikowDoPliku();
 
 public:
     void zmianaHaslaZalogowanegoUzytkownika();
