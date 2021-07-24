@@ -36,5 +36,6 @@ public:
     void edytujAdresata();
     void wyszukajAdresatowPoImieniu();
     void wyszukajAdresatowPoNazwisku();
+    bool czyUzytkownikJestZalogowany();
 };
 #endif // KSIAZKAADRESOWA_H

@@ -56,3 +56,7 @@ void KsiazkaAdresowa::wyszukajAdresatowPoNazwisku()
 {
     adresatMenager->wyszukajAdresatowPoNazwisku(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
 }
+bool KsiazkaAdresowa::czyUzytkownikJestZalogowany()
+{
+    return uzytkownikMenedzer.czyUzytkownikJestZalogowany();
+}

@@ -23,7 +23,7 @@ LOOP:
         {
             ksiazkaAdresowa.logowanieUzytkownika();
 
-                while(true)
+                while(ksiazkaAdresowa.czyUzytkownikJestZalogowany())
                 {
                     wyboru = MetodyPomocnicze::wybierzOpcjeZMenuUzytkownika();
                     switch (wyboru)
